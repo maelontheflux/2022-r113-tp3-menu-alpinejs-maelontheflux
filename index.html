@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr" x-data="{menuIsOpen: false, accordeon1IsOpen: false, accordeon2IsOpen: false, accordeon3IsOpen: false }" :class="{noscroll:menuIsOpen,}">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test menu</title>
+    <script defer src="https://unpkg.com/alpinejs"></script>
+  </head>
+
+  <style>
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #909090;
+      display: grid;
+      place-content: center;
+    }
+    .header_menuBtn 
+    {
+      position: relative;
+      z-index: 10;
+    }
+    .noscroll,
+    .noscroll_body 
+    {
+      overflow: hidden;
+    }
+  </style>
+
+  <body>
+    <!-- https://emmet.io/ -->
+    <!-- header>h1{Test de menu} -->
+    <header>
+
+      <button aria-controls="mainNav" @click="menuIsOpen = ! menuIsOpen"
+      class="header_menuBtn">
+        menu </button>
+    
+      <h1>Test de menu</h1>
+      <nav id="mainNav" x-show="menuIsOpen" x-transition.duration.800ms 
+      class="menu">
+        <ul>
+          <li><a href="#">item 1</a></li>
+          <li><a href="#">item 2</a></li>
+          <li><a href="#">item 3</a></li>
+        </ul>
+     </nav>
+    </header>
+
+    <!-- h2>lorem2^p>lorem -->
+    <h2>Lorem, ipsum.</h2>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
+      mollitia adipisci alias error laboriosam numquam incidunt magni eum eos
+      nemo aliquid pariatur quam voluptates animi laudantium, aperiam
+      consectetur nobis enim.
+    </p>
+      <accordeon>
+        <dt aria-controls="Test1" @click="accordeon1IsOpen=! accordeon1IsOpen">Hello test 1</dt>
+        <dd id="Test1" x-show="accordeon1IsOpen">Texte pour test le Test1 !</dd>
+        
+        <button>
+          <dt aria-controls="Test2" @click="accordeon2IsOpen=! accordeon2IsOpen">Hello test 2</dt>
+        </button>
+        <dd id="Test2" x-show="accordeon2IsOpen">Texte pour test le boutton Test2 !</dd>
+      
+        <dt aria-controls="Test3" @click="accordeon3IsOpen=! accordeon3IsOpen">Hello test 3</dt>
+        <dd id="Test3" x-show="accordeon3IsOpen">Texte pour test le Test3 !</dd>
+
+      </accordeon>
+  </body>
+</html>
