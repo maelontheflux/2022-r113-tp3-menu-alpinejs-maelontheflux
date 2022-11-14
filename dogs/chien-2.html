@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr" x-data="{menuIsOpen: false, accordeon1IsOpen: false, accordeon2IsOpen: false, accordeon3IsOpen: false }" :class="{noscroll:menuIsOpen,}">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test menu</title>
+    <script defer src="https://unpkg.com/alpinejs"></script>
+  </head>
+
+  <style>
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #a0a0a0;
+      display: grid;
+      place-content: center;
+    }
+    .header_menuBtn 
+    {
+      position: relative;
+      z-index: 10;
+    }
+    .noscroll,
+    .noscroll_body 
+    {
+      overflow: hidden;
+    }
+  </style>
+
+  <body>
+    <!-- https://emmet.io/ -->
+    <!-- header>h1{Test de menu} -->
+    <header>
+      <button aria-controls="mainNav" @click="menuIsOpen = ! menuIsOpen" class="header_menuBtn">
+
+        <h1>Menu</h1>
+        <nav id="mainNav" x-show="menuIsOpen" x-transition.duration.800ms class="menu">
+          <ul>
+            <li><a href="../index.html">Acceuil</a></li>
+            <li><a href="../cats/index.html">Les chats</a></li>
+          </ul>
+        </nav>
+      </header>
+    
+    <body>
+            <nav>
+                <ul>
+                    <li><a href="chien-1.html">Chien n°1</a></li>
+                </ul>
+            </nav>
+                <img src="../public/img/dogs/img-chien-2.jpg" alt="chien-2">
+    </body>
+</html>
